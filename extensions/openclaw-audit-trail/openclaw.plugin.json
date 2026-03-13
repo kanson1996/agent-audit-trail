@@ -1,0 +1,90 @@
+{
+  "id": "audit-trail",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "logDir": {
+        "type": "string"
+      },
+      "captureMode": {
+        "type": "string",
+        "enum": ["metadata_only", "full_capture"]
+      },
+      "rotation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "strategy": {
+            "type": "string",
+            "enum": ["daily", "session", "size"]
+          },
+          "maxSizeBytes": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "redaction": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": ["hash", "omit", "truncate"]
+          },
+          "fields": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "truncateLength": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "enabledEvents": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "captureBeforeToolCall": {
+        "type": "boolean"
+      }
+    }
+  },
+  "uiHints": {
+    "logDir": {
+      "label": "Log Directory",
+      "placeholder": "~/.openclaw/audit-trail",
+      "help": "Directory where tamper-evident audit logs are stored",
+      "advanced": true
+    },
+    "captureMode": {
+      "label": "Capture Mode",
+      "help": "metadata_only: record hashes and lengths only (privacy-safe). full_capture: record raw content."
+    },
+    "rotation.strategy": {
+      "label": "Rotation Strategy",
+      "help": "daily: one file per day. session: one file per session. size: rotate by file size."
+    },
+    "rotation.maxSizeBytes": {
+      "label": "Max Log File Size (bytes)",
+      "help": "Only used when rotation strategy is 'size'",
+      "advanced": true
+    },
+    "redaction.mode": {
+      "label": "Redaction Mode",
+      "help": "hash: replace with SHA-256. omit: remove field. truncate: keep first N chars."
+    },
+    "redaction.fields": {
+      "label": "Redaction Fields",
+      "help": "Dot-notation paths to redact in full_capture mode (e.g. payload.content)",
+      "advanced": true
+    },
+    "captureBeforeToolCall": {
+      "label": "Capture Before Tool Call",
+      "help": "Record tool parameters before execution (may expose sensitive args)",
+      "advanced": true
+    }
+  }
+}
