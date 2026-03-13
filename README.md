@@ -11,7 +11,7 @@
 本项目包含两部分：
 
 - `agent-audit-trail`：框架无关的核心审计库
-- `@openclaw/audit-trail`：OpenClaw 插件适配层
+- `@kanson1996/audit-trail`：OpenClaw 插件适配层
 
 适用于 OpenClaw、内部 Agent 平台、自动化工作流、合规审计、事故复盘与安全取证等场景。
 
@@ -284,7 +284,7 @@ console.log(formatReportText(report));
 **方式一：从 npm 安装**
 
 ```bash
-openclaw plugins install @openclaw/audit-trail
+openclaw plugins install @kanson1996/audit-trail
 ```
 
 **方式二：本地开发安装**

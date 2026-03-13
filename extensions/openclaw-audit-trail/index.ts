@@ -1,5 +1,5 @@
 /**
- * @openclaw/audit-trail — OpenClaw Plugin
+ * @kanson1996/audit-trail — OpenClaw Plugin
  *
  * Tamper-evident audit trail for AI Agent lifecycle events.
  *
@@ -10,7 +10,7 @@
  * Plugin config (in openclaw.json):
  * {
  *   "plugins": [{
- *     "path": "@openclaw/audit-trail",
+ *     "path": "@kanson1996/audit-trail",
  *     "config": {
  *       "logDir": "~/.openclaw/audit-trail",
  *       "captureMode": "metadata_only"

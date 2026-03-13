@@ -12,7 +12,7 @@ It generates verifiable, hash-chained JSONL logs for key agent behaviors, helpin
 This repo contains two parts:
 
 - `agent-audit-trail`: framework-agnostic core audit library
-- `@openclaw/audit-trail`: OpenClaw plugin / adapter layer
+- `@kanson1996/audit-trail`: OpenClaw plugin / adapter layer
 
 It is suitable for OpenClaw, internal agent platforms, automated workflows, compliance audits, incident review, and security forensics.
 
@@ -288,7 +288,7 @@ If you’re already using OpenClaw, this is the most natural integration path. T
 **Option 1: Install from npm**
 
 ```bash
-openclaw plugins install @openclaw/audit-trail
+openclaw plugins install @kanson1996/audit-trail
 ```
 
 **Option 2: Local dev install**
